@@ -16,3 +16,4 @@ TEMPLATE = app
 SOURCES += main.cpp
 
 HEADERS  += main.h
+RC_FILE = res.rc
