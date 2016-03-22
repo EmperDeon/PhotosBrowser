@@ -11,6 +11,7 @@ class PsWnd : public QMainWindow{
  int tx, ty, px, py;
 	float scale, oscale;
 
+	QSettings sett;
 	QString dirDeleted, dirCurrent, dirGodnota, title;
 
 	QStringList* files;
@@ -18,6 +19,8 @@ class PsWnd : public QMainWindow{
  int lSize, current;
 
 	bool f = false, t = false, r = false;
+
+	bool isImg(QString s);
 
 public slots:
 	void showMenu(const QPoint& p){ m->popup(p);}
@@ -39,7 +42,7 @@ public slots:
 	void chFull();
 	void chBlur();
 public:
-	PsWnd();
+	PsWnd(QString c = "");
 
 
 	QColor getBackColor(QImage c);

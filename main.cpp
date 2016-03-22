@@ -1,20 +1,27 @@
 #include "main.h"
 
+#define log(s) QMessageBox::information(this, "", s)
+
 int main(int argv, char** argc) {
 	QApplication a(argv, argc);
+	QCoreApplication::setOrganizationName("IlzSoft");
+	QCoreApplication::setOrganizationDomain("github.com/ilz2010");
+	QCoreApplication::setApplicationName("PhotosBrowser");
 
-	PsWnd w;
+	QStringList l = a.arguments();
+	PsWnd w(l.size() == 2 ? l[1] : "");
 	w.showMaximized();
 
 	return a.exec();
 }
 
-PsWnd::PsWnd() {
+PsWnd::PsWnd(QString c) {
 	files = new QStringList;
 	delHs = new QStringList;
+
 	dirCurrent = "";
-	dirDeleted = "";
-	dirGodnota = "";
+	dirDeleted = sett.value("deletedDir", "").toString();
+	dirGodnota = sett.value("godnotaDir", "").toString();
 
  m = new QMenu;
 	m->addAction("Change \"Current\" dir", this, SLOT(setCDir()));
@@ -26,15 +33,29 @@ PsWnd::PsWnd() {
 	this->setContextMenuPolicy(Qt::CustomContextMenu);
 	connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showMenu(const QPoint&)));
 
-	setCDir();
+	if(c==""){
+		setCDir();
+	}else{
+		dirCurrent = c;
+		load();
+	}
 }
 
 // Slots
-void PsWnd::setCDir(){	dirCurrent = QFileDialog::getExistingDirectory(this, "Select dir with files", dirCurrent) + '/';	load();}
+void PsWnd::setCDir(){
+	dirCurrent = QFileDialog::getExistingDirectory(this, "Select dir with files", dirCurrent) + '/';
+	load();
+}
 
-void PsWnd::setDDir(){	dirDeleted = QFileDialog::getExistingDirectory(this, "Select dir for deleted files", dirDeleted) + '/';}
+void PsWnd::setDDir(){
+	dirDeleted = QFileDialog::getExistingDirectory(this, "Select dir for deleted files", dirDeleted) + '/';
+	sett.setValue("deletedDir", dirDeleted);
+}
 
-void PsWnd::setGDir(){ dirGodnota = QFileDialog::getExistingDirectory(this, "Select dir for saved files", dirGodnota) + '/';}
+void PsWnd::setGDir(){
+	dirGodnota = QFileDialog::getExistingDirectory(this, "Select dir for saved files", dirGodnota) + '/';
+	sett.setValue("godnotaDir", dirGodnota);
+}
 
 void PsWnd::openDir(){
 	QDesktopServices::openUrl(QUrl::fromLocalFile(dirCurrent));
@@ -98,14 +119,32 @@ void PsWnd::und() {
 
 
 // Image loading
+bool PsWnd::isImg(QString s){
+	return s.endsWith(".png") || s.endsWith(".jpg");
+}
+
 void PsWnd::load() {
 	files->clear();
+
+	QString c = dirCurrent;
+	c = c.replace("\\", "/");
+	dirCurrent = isImg(c) ? QStringRef(&c, 0, c.lastIndexOf('/')).toString() : (c.endsWith('/') ? c : c + '/');
+
+	if(isImg(c)) c = c.remove(0, c.lastIndexOf('/')+1);
+
 	for(QFileInfo i : QDir(dirCurrent).entryInfoList({"*.png", "*.jpg", "*.gif"}, QDir::NoDotAndDotDot | QDir::Files)){
 		files->append(i.absolutePath() + '/' + i.fileName());
 	}
 
+	if(isImg(c)){
+		for(int i = 0 ; i < files->size() ; i++)
+			if(files->value(i, "").endsWith(c))
+				current = i;
+	}else{
+		current = 0;
+	}
+
 	lSize = files->size();
-	current = 0;
 	if(dirCurrent != "") loadImage();
 }
 
@@ -206,6 +245,8 @@ void PsWnd::keyPressEvent(QKeyEvent *event) {
 	case 16777274:
 	case 16777216: chFull(); break;
 	case 66      : chBlur(); break;
+	case 71      :
+	case 1055    : current = QInputDialog::getInt(this, "Go to", "Go to:", current, 0, lSize)-1, loadImage();
 	case 16777217: t = !t;   break;
 	case Qt::Key_Z: und(); break;
 	default: qDebug() << event->key();
