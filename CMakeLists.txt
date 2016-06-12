@@ -11,8 +11,8 @@ find_package(Qt5Network)
 find_package(Qt5Declarative)
 
 # -fPIC ${Qt5Core_EXECUTABLE_COMPILE_FLAGS}
-set(P_S main.cpp)
-set(P_H main.h)
+set(P_S main.cpp res.rc resizer.cpp)
+set(P_H main.h resizer.h)
 
 qt5_wrap_cpp(GENERATED_SOURCES ${P_H})
 

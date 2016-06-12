@@ -7,7 +7,6 @@ class PsWnd : public QMainWindow{
 
 	QMenu* m;
 	QPixmap image, simg;
-	QColor back;
  int tx, ty, px, py;
 	float scale, oscale;
 
@@ -18,9 +17,15 @@ class PsWnd : public QMainWindow{
 	QStringList* delHs;
  int lSize, current;
 
-	bool f = false, t = false, r = false;
+	bool f = false, t = false, r = true, s = true;
+ // Gif
+	QMovie* g_mov;
+	bool isGif;
 
 	bool isImg(QString s);
+
+private slots:
+	void nextFrame(int i);
 
 public slots:
 	void showMenu(const QPoint& p){ m->popup(p);}
@@ -29,8 +34,6 @@ public slots:
 	void setGDir();
 	void openDir();
 
-	void next();
-	void prev();
 	void next(int i);
 	void prev(int i);
 	void del();
@@ -41,15 +44,20 @@ public slots:
 	void loadImage();
 	void chFull();
 	void chBlur();
+	void chShad();
+
 public:
 	PsWnd(QString c = "");
 
 
-	QColor getBackColor(QImage c);
 	QColor getWColor(QImage o, int i, int i1);
 	QColor getHColor(QImage o, int i, int i1);
 	QImage applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent = 0);
 	QPixmap process(QPixmap in, int MW, int MH);
+
+ bool drawGradV(QPainter &out, QImage o, int MW);
+	bool drawGradH(QPainter &out, QImage o, int MH);
+	void drawGradC(QPainter &out, QImage o, int MW, int MH);
 
 protected:
 	virtual void keyPressEvent(QKeyEvent *keyEvent) override;
@@ -57,6 +65,9 @@ protected:
 	virtual void paintEvent(QPaintEvent *qPaintEvent) override;
 	virtual void mousePressEvent(QMouseEvent *mouseEvent) override;
 	virtual void mouseMoveEvent(QMouseEvent *mouseEvent) override;
+	bool isHColor(QImage o);
+	bool isVColor(QImage o);
+	void exportCurrent();
 };
 
 #endif //PHOTOSBROWSER_MAIN_H
