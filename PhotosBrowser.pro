@@ -13,7 +13,12 @@ TARGET = PhotosBrowser
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp\
+Resizer.cpp
 
-HEADERS  += main.h
+HEADERS  += main.h\
+Resizer.h
+
+RESOURCES += res.qrc
+
 RC_FILE = res.rc

@@ -6,19 +6,15 @@ void qtMessageHandler(QtMsgType type, const QMessageLogContext &cont, const QStr
 	switch (type) {
 		case QtDebugMsg:
 			printf("%s \n", msg.toStdString().c_str());
-			break;// DBG:
-		case QtWarningMsg:
-			break;// WRN: printf("%s \n", msg.toStdString().c_str());
-		case QtCriticalMsg:
-			break;// CRT: printf("%s \n", msg.toStdString().c_str());
-		case QtFatalMsg:
-			break;// FTL: printf("%s \n", msg.toStdString().c_str());
+			break;
+		default:;
 	}
 }
 
 int main(int argv, char **argc) {
 	QApplication a(argv, argc);
 	qInstallMessageHandler(qtMessageHandler);
+	QFontDatabase::addApplicationFont(":/FantasqueSansMono-Regular.ttf");
 	QCoreApplication::setOrganizationName("IlzSoft");
 	QCoreApplication::setOrganizationDomain("github.com/ilz2010");
 	QCoreApplication::setApplicationName("PhotosBrowser");
@@ -33,17 +29,19 @@ int main(int argv, char **argc) {
 PsWnd::PsWnd(QString c) {
 	files = new QStringList;
 	delHs = new QStringList;
+	resize = new Resize;
+ font_fan = QFont("Fantasque Sans Mono", 11);
 
 	dirCurrent = "";
 	dirDeleted = sett.value("deletedDir", "").toString();
-	dirGodnota = sett.value("godnotaDir", "").toString();
+	dirSave = sett.value("godnotaDir", "").toString();
 
 	m = new QMenu;
 	m->addAction("Change \"Current\" dir", this, SLOT(setCDir()));
 	m->addAction("Change \"Deleted\" dir", this, SLOT(setDDir()));
 	m->addAction("Change \"GoodToSave\" dir", this, SLOT(setGDir()));
 	m->addAction("Open current dir", this, SLOT(openDir()));
-	m->addAction("Update image", this, SLOT(update()));
+//	m->addAction("Update image", this, SLOT(update()));
 	g_mov = new QMovie;
 	g_mov->stop();
 
@@ -52,7 +50,7 @@ PsWnd::PsWnd(QString c) {
 		                     const QPoint&)), this, SLOT(showMenu(
 			                                                 const QPoint&)));
 	connect(g_mov, SIGNAL(frameChanged(int)), this, SLOT(nextFrame(int)));
-
+ c = "E:/Wallpapers/dwall/WUHD/105224.jpg";
 	if (c == "") {
 		setCDir();
 	} else {
@@ -73,8 +71,8 @@ void PsWnd::setDDir() {
 }
 
 void PsWnd::setGDir() {
-	dirGodnota = QFileDialog::getExistingDirectory(this, "Select dir for saved files", dirGodnota) + '/';
-	sett.setValue("godnotaDir", dirGodnota);
+	dirSave = QFileDialog::getExistingDirectory(this, "Select dir for saved files", dirSave) + '/';
+	sett.setValue("godnotaDir", dirSave);
 }
 
 void PsWnd::openDir() {
@@ -111,12 +109,12 @@ void PsWnd::del() {
 }
 
 void PsWnd::cop() {
-	if (dirGodnota == "") setGDir();
+	if (dirSave == "") setGDir();
 	QString file = files->value(current);
 	if (QFile(file).exists()) {
 		file = file.remove(0, file.lastIndexOf('/') + 1);
 
-		QFile::rename(dirCurrent + file, dirGodnota + file);
+		QFile::rename(dirCurrent + file, dirSave + file);
 		files->removeAt(current);
 	}
 	current--;
@@ -170,7 +168,6 @@ void PsWnd::loadImage() {
 	QString file = files->value(current);
 
 	if (file.endsWith(".gif")) {
-		isGif = true;
 		oscale = scale = 1.0f;
 		g_mov->stop();
 		g_mov->setFileName(file);
@@ -183,32 +180,14 @@ void PsWnd::loadImage() {
 
 	} else {
 		g_mov->stop();
-		isGif = false;
 
-		QPixmap in(file), p;
-		float s1 = float(height()) / in.height(), s2 = float(width()) / in.width();
+		QImage in(file);
+		image = r ? process(in) : in;
 
-		if (r) {
-			int mw, mh;
-			if (s1 < s2) {
-				mh = in.height() > height() ? in.height() : height();
-				mw = int(float(width()) / height() * (mh));
-			} else {
-				mw = in.width() > width() ? in.width() : width();
-				mh = int(float(height()) / width() * (mw));
-			}
-			p = process(in, mw + 200, mh + 200);
-		} else {
-			p = in;
-		}
+		simg = image.height() > height() || image.width() > width() ?
+		       image.scaled(this->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) : image;
 
-		this->image = p;
-		//	back = getBackColor(p.toImage());
-
-		simg = p.height() > height() || p.width() > width() ?
-		       p.scaled(this->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) : p;
-
-		s1 = float(height()) / p.height(), s2 = float(width()) / p.width();
+		float s1 = float(height()) / image.height(), s2 = float(width()) / image.width();
 		scale = qMin(s1, s2);
 		scale = scale > 1.0f ? 1.0f : scale;
 		oscale = scale;
@@ -262,14 +241,13 @@ void PsWnd::loadImage() {
 void PsWnd::chFull() {
 	this->hide();
 	if (f) {
-//		this->setCursor(QCursor(Qt::ArrowCursor));
 		this->showMaximized();
-		f = false;
+
 	} else {
-//		this->setCursor(QCursor(QPixmap(1, 1)));
 		this->showFullScreen();
-		f = true;
+
 	}
+	f = !f;
 	loadImage();
 }
 
@@ -277,12 +255,6 @@ void PsWnd::chBlur() {
 	r = !r;
 	loadImage();
 }
-
-void PsWnd::chShad() {
-	s = !s;
-	loadImage();
-}
-
 // Image loading
 
 
@@ -316,9 +288,6 @@ void PsWnd::keyPressEvent(QKeyEvent *event) {
 			break;
 		case 69      :
 			exportCurrent();
-			break;
-		case 78      :
-			chShad();
 			break;
 		case 71      :
 		case 1055    :
@@ -366,16 +335,16 @@ void PsWnd::paintEvent(QPaintEvent *event) {
 
 	p.save();
 	p.translate(tx, ty);
-	p.drawPixmap(x1, y1, x2, y2, scale == oscale ? simg : image);
+	p.drawImage(QRect(x1, y1, x2, y2), scale == oscale ? simg : image);
 
 	p.restore();
 
 	if (f && t) {
-		p.setFont(QFont("Fantasque Sans Mono", 11));
+		p.setFont(font_fan);
 		p.setBrush(QBrush(QColor(0, 0, 0, 127)));
 		p.setPen(Qt::NoPen);
 
-		QFontMetrics m(QFont("Fantasque Sans Mono", 11));
+		QFontMetrics m(font_fan);
 		int x = m.width(title) + 10, y = m.height() / 2 + 17;
 
 		p.drawRect((width() - x) / 2, 0, x, y);
@@ -406,7 +375,7 @@ void PsWnd::mousePressEvent(QMouseEvent *event) {
 void PsWnd::nextFrame(int i) {
 	Q_UNUSED(i)
 
-	this->simg = g_mov->currentPixmap();
+	this->simg = g_mov->currentImage();
 
 	if (simg.width() > width() || simg.height() > height()) {
 		simg = simg.scaled(this->size(), Qt::KeepAspectRatio, Qt::FastTransformation);
@@ -424,302 +393,26 @@ void PsWnd::nextFrame(int i) {
 // Gif
 
 
-// Process
-#define BLUR_COUNT 10
-
-QColor PsWnd::getWColor(QImage o, int i, int i1) {
-	int r = 0, g = 0, b = 0;
-	int stx, enx, sty, eny, pc = 0;
-	if (i <= 0 || i >= o.width()) return QColor();
-
-	stx = i - 8;
-	enx = i + 8;
-	sty = (i1 == 0 ? 0 : o.height() - BLUR_COUNT);
-	eny = (i1 == 0 ? BLUR_COUNT : o.height());
-
-	for ( int tx = stx; tx < enx; tx++ )
-		for ( int ty = sty; ty < eny; ty++ )
-			if (tx >= 0 && tx < o.width() && ty >= 0 && ty < o.height()) {
-				QColor c = o.pixel(tx, ty);
-				r += c.red();
-				g += c.green();
-				b += c.blue();
-				pc++;
-			}
-
-	return QColor(r / pc, g / pc, b / pc);
-}
-
-QColor PsWnd::getHColor(QImage o, int i, int i1) {
-	int r = 0, g = 0, b = 0;
-	int stx, enx, sty, eny, pc = 0;
-	if (i < 0 || i >= o.height()) return QColor();
-
-	stx = (i1 == 0 ? 0 : o.width() - BLUR_COUNT);
-	enx = (i1 == 0 ? BLUR_COUNT : o.width());
-	sty = i - 8;
-	eny = i + 8;
-
-	for ( int tx = stx; tx < enx; tx++ )
-		for ( int ty = sty; ty < eny; ty++ )
-			if (tx >= 0 && tx < o.width() && ty >= 0 && ty < o.height()) {
-				QColor c = o.pixel(tx, ty);
-				r += c.red();
-				g += c.green();
-				b += c.blue();
-				pc++;
-			}
-
-	return QColor(r / pc, g / pc, b / pc);
-}
-
-bool PsWnd::isVColor(QImage o) {
-	int tx = o.width() - 1;
-	QRgb r1 = o.pixel(0, 0), r2 = o.pixel(tx, 0);
-
-	for ( int ty = 0; ty < o.height(); ty++ )
-		if (r1 != o.pixel(0, ty) || r2 != o.pixel(tx, ty))
-			return false;
-
-	return true;
-}
-
-bool PsWnd::isHColor(QImage o) {
-	int ty = o.height() - 1;
-	QRgb r1 = o.pixel(0, 0), r2 = o.pixel(0, ty);
-
-	for ( int tx = 0; tx < o.height(); tx++ )
-		if (r1 != o.pixel(tx, 0) || r2 != o.pixel(tx, ty))
-			return false;
-
-	return true;
-}
-
-QImage PsWnd::applyEffectToImage(QImage src, QGraphicsEffect *effect, int extent) {
-	if (src.isNull()) return QImage();   //No need to do anything else!
-	if (!effect) return src;             //No need to do anything else!
-	QGraphicsScene scene;
-	QGraphicsPixmapItem item;
-	item.setPixmap(QPixmap::fromImage(src));
-	item.setGraphicsEffect(effect);
-	scene.addItem(&item);
-	QImage res(src.size() + QSize(extent * 2, extent * 2), QImage::Format_ARGB32);
-	res.fill(Qt::transparent);
-	QPainter ptr(&res);
-	scene.render(&ptr, QRectF(), QRectF(-extent, -extent, src.width() + extent * 2, src.height() + extent * 2));
-	return res;
-}
-
-QPixmap PsWnd::process(QPixmap in, int MW, int MH) {
-	if (in.isNull()) return in;
-	if (in.width() + 200 == MW && in.height() + 200 == MH) return in;
-
-	QImage o = in.toImage();
-	QPixmap n = QPixmap(MW, MH);
-	QPainter out(&n);
-	bool shadow = true;
-
-	// Fill background before blur
-	int fW = MW / 2, fH = MH / 2;
-	out.setBrush(QBrush(QColor(o.pixel(0, 0))));
-	out.drawRect(0, 0, fW, fH);
-
-	out.setBrush(QBrush(QColor(o.pixel(o.width() - 1, 0))));
-	out.drawRect(fW, 0, fW, fH);
-
-	out.setBrush(QBrush(QColor(o.pixel(0, o.height() - 1))));
-	out.drawRect(0, fH, fW, fH);
-
-	out.setBrush(QBrush(QColor(o.pixel(o.width() - 1, o.height() - 1))));
-	out.drawRect(fW, fH, fW, fH);
-
-	// 'Gradients'
-	if (in.height() == MH - 200) {// Vertical-only
-		shadow = drawGradV(out, o, MW);
-
-	} else if (in.width() == MW - 200) {// Horizontal-only
-		shadow = drawGradH(out, o, MH);
-
-	} else {// Vertical, Horizontal and Corners
-		drawGradC(out, o, MW, MH);
-
-	}
-
-	// Blur
-	QGraphicsBlurEffect *eb = new QGraphicsBlurEffect;
-	eb->setBlurRadius(20);
-	eb->setBlurHints(QGraphicsBlurEffect::QualityHint);
-	out.end();
-
-	n = QPixmap::fromImage(applyEffectToImage(n.toImage(), eb));
-
-	out.begin(&n);
-
-
-	// Shadow
-	if (shadow) {
-		QGraphicsDropShadowEffect *e = new QGraphicsDropShadowEffect;
-		e->setBlurRadius(100);
-		e->setOffset(-1, -1);
-		e->setColor(Qt::black);
-		o = applyEffectToImage(o, e, 150);
-	}
-
-
-	// Original
-	int topX = (MW - o.width()) / 2, topY = (MH - o.height()) / 2;
-	out.drawImage(topX, topY, o);
-	// Original
-
-	out.end();
-
-	return n.copy(100, 100, MW - 200, MH - 200);
-}
-// Process
-
-bool PsWnd::drawGradV(QPainter &out, QImage o, int MW) {
-	int lS = (MW - o.width()) / 2, // Line Start
-		lE = lS + o.width(), // Line End
-		lW = 2, // Line width
-		ti; // Temp int
-
-	out.setPen(Qt::NoPen);
-	out.drawImage(lS, 100, o);
-
-
-	if (isVColor(o)) {
-		out.setBrush(QBrush(QColor(o.pixel(0, 0))));
-		out.drawRect(0, 0, lS, o.height() + 200);
-
-		out.setBrush(QBrush(QColor(o.pixel(o.width() - 1, 0))));
-		out.drawRect(lE, 0, MW, o.height() + 200);
-
-		return false;
-
-	} else {
-		for ( int i = 0; i < o.height(); i++ ) {// Left - Right
-			ti = i + 100;
-
-			out.setPen(QPen(QBrush(getHColor(o, i, 0)), lW));
-			out.drawLine(0, ti, lS, ti);
-
-			out.setPen(QPen(QBrush(getHColor(o, i, 1)), lW));
-			out.drawLine(lE, ti, MW, ti);
-		}
-
-		return true;
-	}
-}
-
-bool PsWnd::drawGradH(QPainter &out, QImage o, int MH) {
-	int lS = (MH - o.height()) / 2, // Line Start
-		lE = lS + o.height(), // Line End
-		lW = 2, // Line width
-		ti; // Temp int
-
-	out.setPen(Qt::NoPen);
-	out.drawImage(100, lS, o);
-
-
-	if (isHColor(o)) {
-		out.setBrush(QBrush(QColor(o.pixel(0, 0))));
-		out.drawRect(0, 0, o.width() + 200, lS);
-
-		out.setBrush(QBrush(QColor(o.pixel(o.width() - 1, 0))));
-		out.drawRect(0, lE, o.width() + 200, MH);
-
-		return false;
-
-	} else {
-		for ( int i = 0; i < o.height(); i++ ) {// Left - Right
-			ti = i + 100;
-
-			out.setPen(QPen(QBrush(getWColor(o, i, 0)), lW));
-			out.drawLine(ti, 0, ti, lS);
-
-			out.setPen(QPen(QBrush(getWColor(o, i, 1)), lW));
-			out.drawLine(ti, lE, ti, MH);
-		}
-
-		return true;
-	}
-}
-
-void PsWnd::drawGradC(QPainter &out, QImage o, int MW, int MH) {
-	int iW = o.width(), iH = o.height(),
-  xS = (MW - iW) / 2, yS = (MH - iH) / 2,
-		xE = xS + iW, yE = yS + iH,
-		ti, pi;
-
-	out.setPen(Qt::NoPen);
-	out.drawImage(xS, yS, o);
-
-	// Gradients Center
-	int lW = 2;
-
-	for ( int i = xS; i < iW - xS; i++ ) {// Top - Bottom
-		ti = xS + i;
-
-		out.setPen(QPen(QBrush(getWColor(o, i, 0)), lW));
-		out.drawLine(ti, 0, ti, yS);
-
-		out.setPen(QPen(QBrush(getWColor(o, i, 1)), lW));
-		out.drawLine(ti, yE, ti, MH);
-	}
-
-	for ( int i = yS; i < iH - yS; i++ ) {// Left - Right
-		ti = yS + i;
-
-		out.setPen(QPen(QBrush(getHColor(o, i, 0)), lW));
-		out.drawLine(0, ti, xS, ti);
-
-		out.setPen(QPen(QBrush(getHColor(o, i, 1)), lW));
-		out.drawLine(xE, ti, MW, ti);
-	}
-	// Gradient center
-
-
-	// Gradient angles
-	for ( int i = 0; i < xS; i++ ) {
-		ti = xS + i;
-  pi = i*2;
-
-		out.setPen(QPen(QBrush(getWColor(o, i, 0)), lW));
-		out.drawLine(pi, 0, ti, yS);
-
-		out.setPen(QPen(QBrush(getWColor(o, iW - ti, 0)), lW));
-		out.drawLine(iW + pi, 0, iW + i, yS);
-
-		out.setPen(QPen(QBrush(getWColor(o, i, 1)), lW));
-		out.drawLine(pi, MH - 1, ti, yE);
-
-		out.setPen(QPen(QBrush(getWColor(o, iW - ti, 1)), lW));
-		out.drawLine(iW + pi, MH - 1, iW + i, yE);
-	}
-
-	for ( int i = 0; i < yS; i++ ) {
-		ti = yS + i;
-  pi = i * 2;
-
-		out.setPen(QPen(QBrush(getHColor(o, i, 0)), lW));
-		out.drawLine(0, pi, xS, ti);
-
-		out.setPen(QPen(QBrush(getHColor(o, iH - ti, 0)), lW));
-		out.drawLine(0, iH + pi, xS, iH + i);
-
-		out.setPen(QPen(QBrush(getHColor(o, i, 1)), lW));
-		out.drawLine(MW - 1, pi, xE, ti);
-
-		out.setPen(QPen(QBrush(getHColor(o, iH - ti, 1)), lW));
-		out.drawLine(MW - 1, iH + pi, xE, iH + i);
-	}
-}
-
 void PsWnd::exportCurrent() {
-	if (dirGodnota == "") setGDir();
+	if (dirSave == "") setGDir();
 	QString file = files->value(current);
 	file = file.remove(0, file.lastIndexOf('/') + 1);
-	image.save(dirGodnota + file);
-qDebug() << dirGodnota + file;
+	image.save(dirSave + file);
+
 	next(1);
 }
+
+QImage PsWnd::process(QImage in) {
+	float s1 = float(height()) / in.height(), s2 = float(width()) / in.width();
+	int mw, mh;
+	if (s1 < s2) {
+		mh = in.height() > height() ? in.height() : height();
+		mw = int(float(width()) / height() * (mh));
+	} else {
+		mw = in.width() > width() ? in.width() : width();
+		mh = int(float(height()) / width() * (mw));
+	}
+	return resize->process(in, mw, mh);
+}
+
+
