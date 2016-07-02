@@ -14,10 +14,18 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-Resizer.cpp
+resizer.cpp\
+imageLoader.cpp\
+gifLoader.cpp\
+imageProvider.cpp\
+pio.cpp
 
 HEADERS  += main.h\
-Resizer.h
+resizer.h\
+imageLoader.h\
+gifLoader.h\
+imageProvider.h\
+pio.h
 
 RESOURCES += res.qrc
 

@@ -1,70 +1,42 @@
 #ifndef PHOTOSBROWSER_MAIN_H
 #define PHOTOSBROWSER_MAIN_H
 #include <QtWidgets>
-#include <resizer.h>
+#include <imageProvider.h>
 
-class Resize;
+class ImageProvider;
 
 class PsWnd : public QMainWindow{
-Q_OBJECT
+ Q_OBJECT
 
-	Resize* resize;
+ ImageProvider *provider;
 
-	QFont font_fan;
+	QTimer *loadingTimer;
+	quint32 loadingAngle;
+
 	QMenu* m;
-	QImage image, simg;
 	int tx, ty, px, py;
 	float scale, oscale;
 
-	QSettings sett;
-	QString dirDeleted, dirCurrent, dirSave, title;
-
-	QStringList* files;
-	QStringList* delHs;
-	int lSize, current;
-
-	bool f = false, t = false, r = true;
-
-	// Gif
-	QMovie* g_mov;
-//	bool isGif;
-
-	bool isImg(QString s);
-
-	void load();
-	void loadImage();
-
-	void del();
-	void cop();
-	void und();
-	void exportCurrent();
-
-	QImage process(QImage in);
+	bool isFullScreen = false, isText = false;
 
 private slots:
-	void nextFrame(int i);
-
 	void showMenu(const QPoint& p){ m->popup(p);}
-	void setCDir();
-	void setDDir();
-	void setGDir();
-	void openDir();
-
-	void next(int i);
-	void prev(int i);
-	void chFull();
-	void chBlur();
+	void toggleFullScreen();
 
 public:
-	PsWnd(QString c = "");
+	PsWnd(QString dir = "");
+
+	void resetCoord();
 
 protected:
 	virtual void keyPressEvent(QKeyEvent *keyEvent) override;
 	virtual void wheelEvent(QWheelEvent *qWheelEvent) override;
 	virtual void paintEvent(QPaintEvent *qPaintEvent) override;
-	virtual void mousePressEvent(QMouseEvent *mouseEvent) override;
 	virtual void mouseMoveEvent(QMouseEvent *mouseEvent) override;
+	virtual void mousePressEvent(QMouseEvent *mouseEvent) override;
+	virtual void closeEvent(QCloseEvent *event);
 
+	friend class ImageProvider;
 };
 
 #endif //PHOTOSBROWSER_MAIN_H
