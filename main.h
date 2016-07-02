@@ -15,7 +15,7 @@ class PsWnd : public QMainWindow{
 
 	QMenu* m;
 	int tx, ty, px, py;
-	float scale, oscale;
+	float scale, oscale, tscale = 0.05f;
 
 	bool isFullScreen = false, isText = false;
 

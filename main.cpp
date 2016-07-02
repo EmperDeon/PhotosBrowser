@@ -65,6 +65,7 @@ void PsWnd::toggleFullScreen() {
 void PsWnd::resetCoord() {
 	tx = 0;
 	ty = 0;
+	tscale = 0.05f;
 }
 
 
@@ -79,16 +80,27 @@ void PsWnd::keyPressEvent(QKeyEvent *event) {
 }
 
 void PsWnd::wheelEvent(QWheelEvent *event) {
-	// TODO: Normal scale
+	float dx = 0.3f, dy = 0.3f;
 	if (event->angleDelta().y() > 0) {
-		scale += 0.5f;
+		tscale *= 1.5;
+		scale += tscale;
+
+		tx -= float(event->x() -  width()/2) * dx * (scale / oscale);
+		ty -= float(event->y() - height()/2) * dy * (scale / oscale);
+
 	} else if (scale > oscale + 0.01f) {
-		scale -= 0.5f;
+		tx += float(event->x() -  width()/2) * dx * (scale / oscale);
+		ty += float(event->y() - height()/2) * dy * (scale / oscale);
+
+		scale -= tscale;
+		tscale /= 1.5;
+
 	} else {
 		scale = oscale;
 		tx = 0;
 		ty = 0;
 	}
+qDebug() << QApplication::applicationDirPath();
 	this->update();
 }
 
@@ -107,7 +119,7 @@ void PsWnd::paintEvent(QPaintEvent *event) {
 	int x1, y1, x2, y2;
 
 	if(image.width() != 0) {
-		x2 = int(image.width() * scale) + 1;
+		x2 = int(image.width()  * scale) + 1;
 		y2 = int(image.height() * scale) + 1;
 
 		x1 = (width() - x2) / 2;

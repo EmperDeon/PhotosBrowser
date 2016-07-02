@@ -8,7 +8,7 @@ ImageProvider::ImageProvider(PsWnd *w, QString dir) : wnd(w) {
 	gifLoader = new GifLoader(this);
  mutex = new QMutex;
 
-	QFile f("photos_last.json");
+	QFile f(QApplication::applicationDirPath() + "/photos_last.json");
 	if(f.open(QFile::ReadOnly)){
 		lastPicture = QJsonDocument::fromJson(f.readAll()).object();
 		f.close();
@@ -43,7 +43,7 @@ void ImageProvider::closeEvent() {
 		lastPicture.insert(getDir(files->value(0)), current);
 	}
 
- QFile f("photos_last.json");
+ QFile f(QApplication::applicationDirPath() + "/photos_last.json");
 	if(f.open(QFile::WriteOnly)){
 		f.write(QJsonDocument(lastPicture).toJson());
 		f.close();
