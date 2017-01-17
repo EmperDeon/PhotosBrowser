@@ -1,13 +1,14 @@
 #include "pio.h"
 
 PIO::PIO(ImageProvider *p): prv(p) {
-	currentDir = "";
+	currentDir = sett.value("currentDir", "").toString();
 	deletedDir = sett.value("deletedDir", "").toString();
 	savedDir = sett.value("savedDir", "").toString();
 }
 
 void PIO::setNewCurrentDir() {
 	currentDir = QFileDialog::getExistingDirectory(this->prv->getWnd(), "Select dir with files", currentDir) + '/';
+	sett.setValue("currentDir", currentDir);
 	prv->loadDir();
 }
 

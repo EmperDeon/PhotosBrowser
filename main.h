@@ -6,27 +6,27 @@
 class ImageProvider;
 
 class PsWnd : public QMainWindow{
- Q_OBJECT
+Q_OBJECT
 
- ImageProvider *provider;
-
-	QTimer *loadingTimer;
-	quint32 loadingAngle;
+	ImageProvider *provider;
 
 	QMenu* m;
 	int tx, ty, px, py;
 	float scale, oscale, tscale = 0.05f;
 
+private:
 	bool isFullScreen = false, isText = false;
 
 private slots:
 	void showMenu(const QPoint& p){ m->popup(p);}
 	void toggleFullScreen();
+	void titleChanged(QString s);
 
 public:
 	PsWnd(QString dir = "");
 
 	void resetCoord();
+	void reload();
 
 protected:
 	virtual void keyPressEvent(QKeyEvent *keyEvent) override;

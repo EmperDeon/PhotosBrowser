@@ -11,19 +11,19 @@ class ImageLoader;
 class GifLoader;
 
 class ImageProvider : public QObject{
- Q_OBJECT
- PsWnd *wnd;
+Q_OBJECT
+	PsWnd *wnd;
 
 	ImageLoader *imgLoader;
 	GifLoader *gifLoader;
-	int loaderType;
+	int loaderType = 0;
 
 	QImage iOriginal, iScaled;
 	QString text;
- QMutex *mutex;
- QJsonObject lastPicture;
+	QMutex *mutex;
+	QJsonObject lastPicture;
 
- QStringList* files;
+	QStringList* files;
 	int current = 0;
 
 	inline QString getDir(QString f){
@@ -31,6 +31,9 @@ class ImageProvider : public QObject{
 
 		return f.remove(r, f.length() - r);
 	}
+
+Q_SIGNALS:
+	void titleChanged(QString s);
 
 public: // Fields
 	PIO *io;
@@ -40,12 +43,12 @@ public: // Methods
 	ImageProvider(PsWnd *w, QString dir);
 
 	void keyPressEvent(int i);
- void closeEvent();
+	void closeEvent();
 
 	// Images loading/viewing
- void next(int i = 1);
+	void next(int i = 1);
 	void prev(int i = 1);
-	void loadImage();
+	void loadImage(bool rel = false);
 	void goTo();
 	void toggleBlur();
 
@@ -54,23 +57,27 @@ public: // Methods
 	void loadDir();
 	void del();
 	void cop();
- void exp();
+	void exp();
 
 	// Getters & Setters
 	QImage& getOriginal() { QMutexLocker m(mutex); return iOriginal; }
 	QImage& getScaled() { QMutexLocker m(mutex); return iScaled; }
 	QString getText() const { return text; }
- int getCurrent() { return current; }
+	int getCurrent() { return current; }
 	int getSize() { return files->size(); }
 	PsWnd *getWnd() { return wnd; }
 
-	void setOriginal(QImage& i) {QMutexLocker m(mutex); this->iOriginal = i; }
-	void setScaled(QImage& i) {QMutexLocker m(mutex); this->iScaled = i; }
+	void setOriginal(QImage& i);
+	void setScaled(QImage& i);
 
 	void setText(QString t);
 	void setLoading(bool b);
 	void setOSCale(float f);
 	void setScale(float f);
+
+	void saveLastPicture() const;
+
+	void loadNewDir(int inc);
 };
 
 #endif //PHOTOSBROWSER_IMAGEPROVIDER_H

@@ -3,10 +3,8 @@
 void qtMessageHandler(QtMsgType type, const QMessageLogContext &cont, const QString &msg) {
 	Q_UNUSED(cont)
 	switch (type) {
-		case QtDebugMsg:
-			printf("%s \n", msg.toStdString().c_str());
+		default: printf("%s \n", msg.toStdString().c_str());
 			break;
-		default:;
 	}
 }
 
@@ -22,12 +20,13 @@ int main(int argv, char **argc) {
 	PsWnd w(l.size() == 2 ? l[1] : "");
 	w.showMaximized();
 
+	w.reload();
+
 	return a.exec();
 }
 
 PsWnd::PsWnd(QString dir) {
 	provider = new ImageProvider(this, dir);
-	loadingTimer = new QTimer();
 
 	m = new QMenu;
 	m->addAction("Change \"Current\" dir",    provider->io, SLOT(setNewCurrentDir()));
@@ -40,13 +39,6 @@ PsWnd::PsWnd(QString dir) {
 	        this, SLOT(showMenu(const QPoint&))
 	);
 
-	connect(loadingTimer, &QTimer::timeout, [=](){
-		loadingAngle += 8;
-		loadingAngle = loadingAngle >= 360 ? 0 : loadingAngle;
-		update();
-	});
-
- loadingTimer->start(16);
 }
 
 void PsWnd::toggleFullScreen() {
@@ -100,16 +92,13 @@ void PsWnd::wheelEvent(QWheelEvent *event) {
 		tx = 0;
 		ty = 0;
 	}
-qDebug() << QApplication::applicationDirPath();
-	this->update();
+
+	update();
 }
 
 void PsWnd::paintEvent(QPaintEvent *event) {
-	static bool first = true;
-	if (first) provider->loadImage(), first = false;
-
 	QPainter p(this);
-	p.setRenderHint(QPainter::Antialiasing, true);
+//	p.setRenderHint(QPainter::Antialiasing, true);
 	p.setBrush(QBrush(QColor(56, 56, 56, 255)));
 	p.drawRect(-1, -1, width() + 1, height() + 1);
 
@@ -118,7 +107,7 @@ void PsWnd::paintEvent(QPaintEvent *event) {
 	QImage image = provider->getOriginal();
 	int x1, y1, x2, y2;
 
-	if(image.width() != 0) {
+	if (image.width() != 0) {
 		x2 = int(image.width()  * scale) + 1;
 		y2 = int(image.height() * scale) + 1;
 
@@ -127,38 +116,26 @@ void PsWnd::paintEvent(QPaintEvent *event) {
 
 		p.save();
 		p.translate(tx, ty);
+
 		p.drawImage(QRect(x1, y1, x2, y2), scale == oscale ? provider->getScaled() : image);
 
 		p.restore();
 
-		if (isFullScreen && isText) {
-			p.setFont(font_fan);
-			p.setBrush(QBrush(QColor(0, 0, 0, 127)));
-			p.setPen(Qt::NoPen);
-
-			QFontMetrics m(font_fan);
-			int x = m.width(provider->getText()) + 10, y = m.height() / 2 + 17;
-
-			p.drawRect((width() - x) / 2, 0, x, y);
-
-			p.setPen(QPen(QBrush(QColor(255, 255, 255)), 100));
-			p.drawText((width() - x) / 2, 0, x, y, Qt::AlignCenter, provider->getText());
-		}
-
 	}
 
-	if(provider->isLoading){
-		p.setPen(Qt::NoPen);
-		p.setBrush(QBrush(QColor(40, 40, 40)));
-  p.drawRoundedRect(QRect(width()-150, 10, 140, 50), 25, 25);
-
-		p.setPen(QPen(QBrush(QColor(200, 200, 200, 150)), 3));
-  p.drawArc(QRect(width()-140, 20, 30, 30), loadingAngle * 16, 4640);
-
+	if (isText) {
 		p.setFont(font_fan);
-		p.setPen(QPen(QBrush(QColor(200, 200, 200, 225)), 3));
-		p.drawText(width() - 100, 40, "Loading...");
- }
+		p.setBrush(QBrush(QColor(0, 0, 0, 127)));
+		p.setPen(Qt::NoPen);
+
+		QFontMetrics m(font_fan);
+		int x = m.width(provider->getText()) + 10, y = m.height() / 2 + 17;
+
+		p.drawRect((width() - x) / 2, 0, x, y);
+
+		p.setPen(QPen(QBrush(QColor(255, 255, 255)), 100));
+		p.drawText((width() - x) / 2, 0, x, y, Qt::AlignCenter, provider->getText());
+	}
 
 	p.end();
 
@@ -170,6 +147,7 @@ void PsWnd::mouseMoveEvent(QMouseEvent *event) {
 	ty += event->y() - py;
 	px = event->x();
 	py = event->y();
+
 	update();
 }
 
@@ -182,4 +160,23 @@ void PsWnd::closeEvent(QCloseEvent *event) {
 	Q_UNUSED(event);
 
 	provider->closeEvent();
+}
+
+void PsWnd::reload() {
+	QTimer::singleShot(100, [=](){
+		provider->loadImage();
+		update();
+	});
+}
+
+void PsWnd::titleChanged(QString s) {
+	setWindowTitle(s);
+}
+
+void operator delete(void * p, std::size_t) {
+	std::free(p);
+}
+
+void operator delete[](void * p, std::size_t) {
+	std::free(p);
 }
