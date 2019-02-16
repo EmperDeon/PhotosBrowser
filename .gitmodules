@@ -1,0 +1,6 @@
+[submodule "vendor/verdigris"]
+	path = vendor/verdigris
+	url = https://github.com/woboq/verdigris
+[submodule "vendor/cotire"]
+	path = vendor/cotire
+	url = https://github.com/sakra/cotire

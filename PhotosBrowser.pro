@@ -1,32 +1,33 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-02-18T12:20:22
-#
-#-------------------------------------------------
+//
+//	Copyright (c) 2017-2019 by Ilya Barykin
+//	Released under the MIT License.
+//	See the provided LICENSE.TXT file for details.
+//
 
-QT       += core gui
-CONFIG += c++11
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT     += core gui widgets
+CONFIG += c++14
 
 TARGET = PhotosBrowser
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-resizer.cpp\
-imageLoader.cpp\
-gifLoader.cpp\
-imageProvider.cpp\
-pio.cpp
+SOURCES += \
+ main.cpp \
+ GifLoader.cpp \
+ ImageLoader.cpp \
+ ImageProvider.cpp \
+ Pio.cpp \
+ Resizer.cpp \
+ Window.cpp
 
-HEADERS  += main.h\
-resizer.h\
-imageLoader.h\
-gifLoader.h\
-imageProvider.h\
-pio.h
+HEADERS  += \
+ GifLoader.h \
+ ImageLoader.h \
+ ImageProvider.h \
+ Pio.h \
+ Resizer.h \
+ Window.h
 
-RESOURCES += res.qrc
+RESOURCES += res/res.qrc
 
-RC_FILE = res.rc
+RC_FILE = res/res.rc

@@ -1,5 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
-.gitignore
-FantasqueSansMono-Regular.ttf
-PhotosBrowser.pro.user.q23012
-cmake-build-debug/
+
+.idea
+build
+cmake-build-*
+vendor
+
+PhotosBrowser.pro.*

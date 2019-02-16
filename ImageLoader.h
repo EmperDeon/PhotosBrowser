@@ -1,29 +1,38 @@
+/*
+	Copyright (c) 2017-2019 by Ilya Barykin
+	Released under the MIT License.
+	See the provided LICENSE.TXT file for details.
+*/
+
 #ifndef PHOTOSBROWSER_IMAGELOADER_H
 #define PHOTOSBROWSER_IMAGELOADER_H
-#include "resizer.h"
-#include "imageProvider.h"
+
+#include "Resizer.h"
+#include "ImageProvider.h"
+
 
 class Resize;
+
 class ImageProvider;
 
-class ImageLoader : public QObject{
-	Q_OBJECT
+class Window;
 
- Resize *resize;
- ImageProvider *prv;
+class ImageLoader : public QObject {
+    Resize *resize;
+    ImageProvider *prv;
 
-	bool isBlurred = false;
+    bool isBlurred = false;
 
 public:
-	ImageLoader(ImageProvider *p);
+    explicit ImageLoader(ImageProvider *p);
 
-	void loadImage(QString file);
-	void toggleBlur() { isBlurred = !isBlurred; }
+    void loadImage(QString file);
+
+    void toggleBlur() { isBlurred = !isBlurred; }
 
 protected:
-	QImage process(QImage in);
+    QImage process(QImage in);
 };
-
 
 
 #endif //PHOTOSBROWSER_IMAGELOADER_H

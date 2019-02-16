@@ -1,36 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="PhotosBrowser" targetName="PhotosBrowser" />
-      <config projectName="PhotosBrowser" targetName="PhotosBrowser_automoc" />
+      <config projectName="PhotosBrowser" targetName="clean_cotire" />
+      <config projectName="PhotosBrowser" targetName="all_unity" />
+      <config projectName="PhotosBrowser" targetName="PhotosBrowser_unity" />
+      <config projectName="PhotosBrowser" targetName="PhotosBrowser_pch_pre" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="CMAKE_PREFIX_PATH" value="$USER_HOME$/Software/Qt/5.11/lib/cmake/" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="CMAKE_PREFIX_PATH" value="$USER_HOME$/Software/Qt/5.11/lib/cmake/" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f6c8067-6e20-425e-8879-4545edf215c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/ilya.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PhotosBrowser.iml" afterPath="$PROJECT_DIR$/.idea/PhotosBrowser.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PhotosBrowser.pro.user" afterPath="$PROJECT_DIR$/PhotosBrowser.pro.user" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gifLoader.cpp" afterPath="$PROJECT_DIR$/gifLoader.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imageProvider.cpp" afterPath="$PROJECT_DIR$/imageProvider.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imageProvider.h" afterPath="$PROJECT_DIR$/imageProvider.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.h" afterPath="$PROJECT_DIR$/main.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/PIO.cpp" afterPath="$PROJECT_DIR$/pio.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/PIO.h" afterPath="$PROJECT_DIR$/pio.h" />
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README-dev.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Window.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Window.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/PT_Sans-Web-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/PT_Sans-Web-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/PT_Sans-Web-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/PT_Sans-Web-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/cotire" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/verdigris" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PhotosBrowser.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ilya.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ImageLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/ImageLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PhotosBrowser.pro" beforeDir="false" afterPath="$PROJECT_DIR$/PhotosBrowser.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PhotosBrowser.pro.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resizer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Resizer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resizer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Resizer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gifLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GifLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gifLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/GifLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i128.ico" beforeDir="false" afterPath="$PROJECT_DIR$/res/i128.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageProvider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProvider.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageProvider.h" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProvider.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Pio.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pio.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/res/res.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res.rc" beforeDir="false" afterPath="$PROJECT_DIR$/res/res.rc" afterDir="false" />
     </list>
     <ignored path="PhotosBrowser.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/cmake-build-release/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,81 +83,24 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FavoritesManager">
     <favorites_list name="PhotosBrowser" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-              <folding>
-                <element signature="e#58#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2827">
-              <caret line="173" column="1" lean-forward="true" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageProvider.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imageProvider.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageProvider.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/imageProvider.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="224" column="4" lean-forward="false" selection-start-line="224" selection-start-column="4" selection-end-line="224" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageLoader.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imageLoader.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-              <folding>
-                <element signature="e#72#92#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageLoader.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imageLoader.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>last</find>
+      <find>W_OBJE</find>
+      <find>Fantas</find>
+      <find>Fan</find>
+      <find>stats</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -131,23 +116,41 @@
         <option value="$PROJECT_DIR$/qtblur.cpp" />
         <option value="$PROJECT_DIR$/res.rc" />
         <option value="$PROJECT_DIR$/res.qrc" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt" />
+        <option value="$PROJECT_DIR$/README-dev.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/imageLoader.cpp" />
+        <option value="$PROJECT_DIR$/pio.cpp" />
+        <option value="$PROJECT_DIR$/resizer.h" />
+        <option value="$PROJECT_DIR$/window.cpp" />
+        <option value="$PROJECT_DIR$/window.h" />
+        <option value="$PROJECT_DIR$/main.h" />
+        <option value="$PROJECT_DIR$/res/res.qrc" />
+        <option value="$PROJECT_DIR$/resizer.cpp" />
+        <option value="$PROJECT_DIR$/.gitmodules" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/pio.h" />
-        <option value="$PROJECT_DIR$/gifLoader.h" />
+        <option value="$PROJECT_DIR$/imageProvider.cpp" />
+        <option value="$PROJECT_DIR$/imageLoader.h" />
+        <option value="$PROJECT_DIR$/gifLoader.cpp" />
+        <option value="$PROJECT_DIR$/imageProvider.h" />
         <option value="$PROJECT_DIR$/PhotosBrowser.pro" />
         <option value="$PROJECT_DIR$/Resizer.h" />
-        <option value="$PROJECT_DIR$/ImageLoader.h" />
-        <option value="$PROJECT_DIR$/pio.cpp" />
-        <option value="$PROJECT_DIR$/ImageLoader.cpp" />
-        <option value="$PROJECT_DIR$/gifLoader.cpp" />
         <option value="$PROJECT_DIR$/Resizer.cpp" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/imageLoader.h" />
-        <option value="$PROJECT_DIR$/imageProvider.h" />
-        <option value="$PROJECT_DIR$/main.h" />
+        <option value="$PROJECT_DIR$/Pio.h" />
+        <option value="$PROJECT_DIR$/Pio.cpp" />
+        <option value="$PROJECT_DIR$/Window.h" />
+        <option value="$PROJECT_DIR$/Window.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/imageLoader.cpp" />
-        <option value="$PROJECT_DIR$/imageProvider.cpp" />
+        <option value="$PROJECT_DIR$/ImageProvider.h" />
+        <option value="$PROJECT_DIR$/ImageProvider.cpp" />
+        <option value="$PROJECT_DIR$/ImageLoader.h" />
+        <option value="$PROJECT_DIR$/ImageLoader.cpp" />
+        <option value="$PROJECT_DIR$/GifLoader.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/GifLoader.h" />
+        <option value="$PROJECT_DIR$/gifLoader.h" />
       </list>
     </option>
   </component>
@@ -157,12 +160,15 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="22" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1080" />
+    <option name="y" value="870" />
+    <option name="width" value="1920" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -188,69 +194,93 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PhotosBrowser" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PhotosBrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="PhotosBrowser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhotosBrowser" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Olumpiada/prg-1" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="138" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="166" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="842" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="160" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="138" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="166" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="168" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="842" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="159" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="160" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="835" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="prop_add_unversioned_files" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="160" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="159" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="160" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="835" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="prop_add_unversioned_files" value="true" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
-  <component name="RunManager" selected="Application.Build All">
-    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
-      <envs />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PhotosBrowser_unity">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Release" TEST_MODE="SUITE_TEST" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="PhotosBrowser" RUN_TARGET_NAME="PhotosBrowser" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="PhotosBrowser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="PhotosBrowser" RUN_TARGET_NAME="PhotosBrowser" />
+    <configuration name="PhotosBrowser_pch_pre" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser_pch_pre" CONFIG_NAME="Release" />
+    <configuration name="PhotosBrowser_unity" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser_unity" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="PhotosBrowser" RUN_TARGET_NAME="PhotosBrowser_unity" />
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Release" />
+    <configuration name="all_unity" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="all_unity" CONFIG_NAME="Release" />
+    <configuration name="clean_cotire" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="clean_cotire" CONFIG_NAME="Release" />
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
       <method />
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Debug">
+    <configuration default="true" type="FirefoxRemoteDebugType" factoryName="Firefox Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
       <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -262,34 +292,33 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+    <configuration default="true" type="NodeWebKit" factoryName="NW.js">
       <method />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
+    <configuration default="true" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <platform value="ANDROID" />
       <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
       <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
@@ -298,7 +327,6 @@
       <tasks />
       <arguments />
       <envs />
-      <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
@@ -326,112 +354,58 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="PhotosBrowser" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="PhotosBrowser" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
+      <module name="PhotosBrowser" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PhotosBrowser" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration default="false" name="PhotosBrowser" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PhotosBrowser" RUN_TARGET_NAME="PhotosBrowser">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="E:\Wallpapers\To_Resort\Anime\8" WORKING_DIR="file://E:/Wallpapers" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PhotosBrowser" RUN_TARGET_NAME="PhotosBrowser" EXPLICIT_BUILD_TARGET_NAME="all">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="PhotosBrowser_automoc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PhotosBrowser" TARGET_NAME="PhotosBrowser_automoc" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.PhotosBrowser" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="2" class="java.lang.String" itemvalue="Application.PhotosBrowser_automoc" />
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.all_unity" />
+      <item itemvalue="Application.clean_cotire" />
+      <item itemvalue="Application.PhotosBrowser" />
+      <item itemvalue="Application.PhotosBrowser_pch_pre" />
+      <item itemvalue="Application.PhotosBrowser_unity" />
     </list>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -447,7 +421,34 @@
       <workItem from="1476878158334" duration="6218000" />
       <workItem from="1479034418171" duration="3228000" />
       <workItem from="1479115977558" duration="1045000" />
-      <workItem from="1484658717806" duration="6084000" />
+      <workItem from="1484658717806" duration="6191000" />
+      <workItem from="1484812401152" duration="931000" />
+      <workItem from="1485935768881" duration="671000" />
+      <workItem from="1486032571754" duration="644000" />
+      <workItem from="1486102912052" duration="733000" />
+      <workItem from="1486527514854" duration="618000" />
+      <workItem from="1486798269654" duration="1758000" />
+      <workItem from="1496570321863" duration="8452000" />
+      <workItem from="1496738905533" duration="73000" />
+      <workItem from="1497084615580" duration="1099000" />
+      <workItem from="1498488323359" duration="2293000" />
+      <workItem from="1515254860085" duration="7179000" />
+      <workItem from="1515398597530" duration="1746000" />
+      <workItem from="1515415599661" duration="169000" />
+      <workItem from="1521888119598" duration="1890000" />
+      <workItem from="1522467399620" duration="378000" />
+      <workItem from="1522467795269" duration="5492000" />
+      <workItem from="1523028571245" duration="605000" />
+      <workItem from="1527507720191" duration="3320000" />
+      <workItem from="1529733038662" duration="3027000" />
+      <workItem from="1530016152644" duration="21000" />
+      <workItem from="1530948107045" duration="3340000" />
+      <workItem from="1549964857073" duration="3626000" />
+      <workItem from="1549968630150" duration="129000" />
+      <workItem from="1550035579880" duration="332000" />
+      <workItem from="1550068620730" duration="2261000" />
+      <workItem from="1550131007795" duration="2950000" />
+      <workItem from="1550208320134" duration="1172000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored Resize class, started Asynchronous Image Loading and Processing">
       <created>1465820973997</created>
@@ -456,11 +457,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465820973997</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed crash when window title changes&#10;Added &lt; and &gt; keys for going to next/prev folder">
+      <created>1484665027622</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484665027622</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39002000" />
+    <option name="totallyTimeSpent" value="94018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -472,31 +480,60 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="1080" y="870" width="1920" height="1050" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19122024" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4380032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27858293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41062802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63607085" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18871903" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.34494016" />
+      <window_info anchor="bottom" id="CMake" order="7" weight="0.20674646" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053364" side_tool="true" visible="true" weight="0.3275488" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.304679" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4994664" weight="0.32861805" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41062802" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Cargo" order="3" />
+      <window_info anchor="bottom" id="Inspection Results" order="7" weight="0.3297062" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.63607085" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="SHOW_ROOT_NAMES" value="true" />
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -514,7 +551,10 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Fixed bugs, Added gif, Started moving Resizer" />
     <MESSAGE value="Refactored Resize class, started Asynchronous Image Loading and Processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Resize class, started Asynchronous Image Loading and Processing" />
+    <MESSAGE value="Fixed crash when window title changes&#10;Added &lt; and &gt; keys for going to next/prev folder" />
+    <MESSAGE value="Small refactor and Reformat code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small refactor and Reformat code" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -530,192 +570,238 @@
       </default-breakpoints>
       <option name="time" value="26" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/qpainter.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/qrgb.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/5.4.2/QtGui/private/qmath_p.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/5.4.2/QtGui/private/qguiapplication_p.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/5.4.2/QtGui/private/qdrawhelper_p.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/gdb/jit-reader.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/5.4.2/QtGui/private/qmemrotate_p.h" />
-    <entry file="file://$PROJECT_DIR$/1" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qcompilerdetection.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/QtGui" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/qaccessibleobject.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/i686-w64-mingw32/include/c++/bits/move.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qmath.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qglobal.h" />
-    <entry file="file://$PROJECT_DIR$/qtblur.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtGui/qimage.h" />
-    <entry file="file://$PROJECT_DIR$/qtblur.cpp" />
-    <entry file="file://$PROJECT_DIR$/res.rc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res.qrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qtimer.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qthread.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qobjectdefs.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtConcurrent/qtconcurrentexception.h" />
-    <entry file="file://$PROJECT_DIR$/wnd.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qrefcount.h" />
-    <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qatomic_x86.h" />
     <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qstring.h" />
     <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtCore/qarraydata.h" />
     <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtConcurrent/qtconcurrentstoredfunctioncall.h" />
     <entry file="file://$APPLICATION_HOME_DIR$/mingw492_32/include/QtConcurrent/qtconcurrentrunbase.h" />
-    <entry file="file://$PROJECT_DIR$/gifLoader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PhotosBrowser.pro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/JetBrains/mingw530_32/include/QtConcurrent/qtconcurrentrunbase.h" />
     <entry file="file://C:/JetBrains/mingw530_32/include/QtGui/qpainter.h" />
     <entry file="file://C:/JetBrains/mingw530_32/include/QtGui/qimage.h" />
     <entry file="file://C:/JetBrains/mingw530_32/include/QtWidgets/qmainwindow.h" />
     <entry file="file://C:/JetBrains/mingw530_32/include/QtWidgets/qwidget.h" />
-    <entry file="file://$PROJECT_DIR$/gifLoader.cpp">
+    <entry file="file://D:/Qt/mingw530_32/include/QtCore/qstring.h" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="-3111" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
+    <entry file="file://$USER_HOME$/.myQtProgs/dumper.json" />
+    <entry file="file://$USER_HOME$/.config/IlzSoft/PhotosBrowser.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pio.cpp">
+    <entry file="file://$USER_HOME$/.myQtProgs/photos_last.json" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/photos_last.json" />
+    <entry file="file://$USER_HOME$/Software/Qt/5.11/include/QtCore/qdir.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#621#803#0" expanded="false" />
-            <element signature="e#805#896#0" expanded="false" />
-            <element signature="e#898#1115#0" expanded="false" />
-            <element signature="e#1117#1328#0" expanded="false" />
-            <element signature="e#1330#1497#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="638">
+          <caret line="181" column="9" selection-start-line="181" selection-start-column="9" selection-end-line="181" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resizer.cpp">
+    <entry file="file:///usr/include/tomcrypt_cipher.h" />
+    <entry file="file:///usr/include/tomcrypt.h" />
+    <entry file="file://$USER_HOME$/Software/Qt/5.11/include/QtCore/qbytearray.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4318">
-          <caret line="254" column="27" lean-forward="false" selection-start-line="254" selection-start-column="27" selection-end-line="254" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="230">
+          <caret line="487" column="25" selection-start-line="487" selection-start-column="25" selection-end-line="487" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/res/fonts/OFL.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README-dev.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="17">
+            <caret line="1" selection-start-line="1" selection-end-line="1" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resizer.h">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="561">
+            <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/res.rc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/res.qrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$USER_HOME$/Qt/Organizer/CMakeLists.txt" />
+    <entry file="file://$USER_HOME$/Qt/Organizer/vendor/additions.h" />
+    <entry file="file://$PROJECT_DIR$/vendor/verdigris/src/wobjectdefs.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="261">
+          <caret line="580" column="21" selection-start-line="580" selection-start-column="15" selection-end-line="580" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.h">
+    <entry file="file://$PROJECT_DIR$/vendor/verdigris/src/wobjectimpl.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding>
-            <element signature="e#58#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="319">
+          <caret line="899" column="3" selection-start-line="899" selection-start-column="3" selection-end-line="899" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imageLoader.h">
+    <entry file="file://$PROJECT_DIR$/main.h" />
+    <entry file="file://$PROJECT_DIR$/res/i128.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PhotosBrowser.pro">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="e#72#92#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imageProvider.h">
+    <entry file="file://$PROJECT_DIR$/Resizer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="544">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Window.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Window.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="26" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="13" selection-end-line="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2827">
-          <caret line="173" column="1" lean-forward="true" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="20" selection-end-line="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pio.h">
+    <entry file="file://$PROJECT_DIR$/ImageProvider.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="213" column="20" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Qt/mingw530_32/include/QtCore/qstring.h">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="370" column="38" lean-forward="false" selection-start-line="370" selection-start-column="38" selection-end-line="370" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imageLoader.cpp">
+    <entry file="file://$PROJECT_DIR$/GifLoader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="578">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imageProvider.cpp">
+    <entry file="file://$PROJECT_DIR$/ImageLoader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="224" column="4" lean-forward="false" selection-start-line="224" selection-start-column="4" selection-end-line="224" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="374">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageLoader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageProvider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitmodules">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gifLoader.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GifLoader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gifLoader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>

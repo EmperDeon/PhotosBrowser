@@ -1,39 +1,47 @@
+#
+# Copyright (c) 2017-2019 by Ilya Barykin
+# Released under the MIT License.
+# See the provided LICENSE.TXT file for details.
+#
+
 cmake_minimum_required(VERSION 3.3)
-project(PhotosBrowser)
+project(PhotosBrowser CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_CXX_FLAGS "-std=c++14")
+set(CMAKE_CXX_STANDARD 14)
 
-find_package(Qt5Core)
-find_package(Qt5Widgets)
-find_package(Qt5Network)
-#find_package(Qt5Declarative)
-find_package(Qt5Concurrent)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/vendor")
+
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 
 set(P_S
-		main.cpp
-		res.rc
-		resizer.cpp
-		imageLoader.cpp
-		gifLoader.cpp
-		imageProvider.cpp
-		pio.cpp
-		)
+        res/res.rc
+
+        main.cpp
+        Resizer.cpp
+        ImageLoader.cpp
+        GifLoader.cpp
+        ImageProvider.cpp
+        Pio.cpp Window.cpp
+        )
 
 set(P_H
-		main.h
-		resizer.h
-		imageLoader.h
-		gifLoader.h
-		imageProvider.h
-		pio.h
-		)
+        Resizer.h
+        ImageLoader.h
+        ImageProvider.h
+        Pio.h Window.h
+        )
+
+include(cotire/CMake/cotire)
 
 qt5_wrap_cpp(GENERATED_SOURCES ${P_H})
-qt5_add_resources(RES res.qrc)
+qt5_add_resources(RES res/res.qrc)
 
 add_executable(PhotosBrowser ${P_S} ${P_H} ${RES})
-qt5_use_modules(PhotosBrowser Core Widgets Network Concurrent)
 target_compile_features(PhotosBrowser PRIVATE cxx_range_for)
-target_link_libraries(PhotosBrowser ${Qt5Core_QTMAIN_LIBRARIES})
+set_target_properties(PhotosBrowser PROPERTIES COTIRE_ENABLE_PRECOMPILED_HEADER OFF)
+target_link_libraries(PhotosBrowser Qt5::Core Qt5::Widgets)
+
+cotire(PhotosBrowser)

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/PT_Sans-Web-Regular.ttf</file>
+        <file>fonts/PT_Sans-Web-Italic.ttf</file>
+        <file>fonts/PT_Sans-Web-Bold.ttf</file>
+        <file>fonts/PT_Sans-Web-BoldItalic.ttf</file>
+        <file>i128.ico</file>
+    </qresource>
+</RCC>

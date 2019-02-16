@@ -1,0 +1,54 @@
+/*
+	Copyright (c) 2017-2019 by Ilya Barykin
+	Released under the MIT License.
+	See the provided LICENSE.TXT file for details.
+*/
+
+#include "GifLoader.h"
+
+
+GifLoader::GifLoader(ImageProvider *p) : prv(p) {
+    g_mov = new QMovie;
+
+    connect(g_mov, &QMovie::frameChanged, this, &GifLoader::nextFrame);
+}
+
+void GifLoader::loadImage(QString file) {
+    prv->getWnd()->resetCoord();
+
+    QString text;
+
+    g_mov->setFileName(file);
+    g_mov->start();
+
+    text = QString("File: %1 | %2/%3 ");
+    text = text.arg(file.remove(0, file.lastIndexOf('/') + 1))
+            .arg(prv->getCurrent() + 1)
+            .arg(prv->getSize());
+
+    prv->setText(text);
+}
+
+void GifLoader::stop() {
+    g_mov->stop();
+}
+
+void GifLoader::nextFrame(int i) {
+    Q_UNUSED(i)
+
+    QImage orig = g_mov->currentImage(), simg;
+
+    simg = (orig.width() > prv->getWnd()->width() || orig.height() > prv->getWnd()->height()) ?
+           orig.scaled(prv->getWnd()->size(), Qt::KeepAspectRatio, Qt::FastTransformation) : orig;
+
+    int wH = prv->getWnd()->height();
+    int wW = prv->getWnd()->width();
+    float s1 = float(wH) / orig.height(), s2 = float(wW) / orig.width(), scale;
+    scale = qMin(s1, s2);
+    scale = scale > 1.0f ? 1.0f : scale;
+
+    prv->setScale(scale);
+    prv->setOriginalScale(scale);
+    prv->setOriginal(orig);
+    prv->setScaled(simg);
+}
